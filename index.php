@@ -1,3 +1,6 @@
+<?php
+	include("connection.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,3 +45,68 @@
 
 </body>
 </html>
+
+<?php
+
+if (isset($_POST["login"]))
+{
+    $user=mysqli_real_escape_string($con,$_POST["uname"]);
+    $pass=mysqli_real_escape_string($con,$_POST["psw"]);
+
+    $query=$con->prepare("SELECT * FROM users WHERE  email=? AND pass=?");
+
+      $query->bind_param("ss",$user,$pass);
+      $query->execute();
+      $result=$query->get_result();
+
+      if ($result->num_rows===0)
+      
+        exit('<h1 style="background:black; position:absolute;top:5px;right:10px; border:red ; border-style:outset ;color:red">No user exists</h1>');
+
+
+      
+    while($row=$result->fetch_assoc())
+   {
+       $id= $row['id'];
+       $uname_db = $row['email'];
+       $password_db = $row['pass'];
+    }
+    
+    $query->close();
+
+
+    if ($uname_db=="saif@saif.com") {
+      # code...
+    
+  
+    session_start();
+
+    $_SESSION['loged_user']=$uname_db;
+
+    echo '<script language=javascript>';
+    echo 'alert("Sucessfuly loged in '.$_SESSION['loged_user'].' ")';
+    echo '</script>';
+
+
+      header("location:admin_homes.php");
+
+    }
+    else{
+
+      session_start();
+
+    $_SESSION['loged_user']=$uname_db;
+
+    echo '<script language=javascript>';
+    echo 'alert("Sucessfuly loged in '.$_SESSION['loged_user'].' ")';
+    echo '</script>';
+
+
+      header("location:dashboard.php");
+
+    }
+
+  }
+
+
+?>

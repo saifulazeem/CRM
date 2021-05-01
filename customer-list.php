@@ -22,7 +22,7 @@ if(isset($_GET["logout"]))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboaard</title>
+	<title>Customer List</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,19 +55,19 @@ if(isset($_GET["logout"]))
                             <ul>
                             	<li><a  href="dashboard.php">Dashboard</a></li>
                             	 <hr class="new2">
-                                <li><a style="background-color: #2d2d2d;"  href="engineers_list.php">All Engineers</a></li>
+                                <li><a   href="engineers_list.php">All Engineers</a></li>
                                 <hr class="new2">
                                 <li><a  href="register-complain.php">Register Complains</a></li>
                                 <hr class="new2">
                                 <li><a href="complain-status.php">Complains Status</a></li>
                                 <hr class="new2">
-                                <li><a href="customer-list.php">Manage Customers</a></li>
+                                <li><a style="background-color: #2d2d2d;" href="customer-list.php">Manage Customers</a></li>
                                 <hr class="new2">
                                 <li><a href="register-engineer.php">Register Engineers</a></li>
                                 <hr class="new2">
                                 <li><a href="manage_engineer.php">Manage Engineers</a></li>
                                 <hr class="new2">
-                               
+                              
                                 <li>
                                 	<form>
                                 		<input class="btn btn-secondary" type="submit" name="logout" value="Logout">
@@ -115,16 +115,15 @@ if(isset($_GET["logout"]))
 
 	<div class="container">
 		<div class="ul-container">
-			<ul>
+			<!-- <ul>
 			  	<li ><a class="btn btn-primary" style="background-color: #4d4d4d; border: none;" href="index.php">ALL</a></li>
 			  	<li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="top_apps.php">ON DUTY</a></li>
 			  	<li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d;border: none;" href="new_release.php">TOP</a></li>
 			  	<li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="rating.php">AVAILABLE</a></li>
-<!-- 			  	<li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="like_app.php">RACING</a></li> -->
-			</ul>
+			</ul> -->
 		</div>
 		<br>
-		<h4 style="color: #4d4d4d; margin-bottom: -5px;">Engineers</h4>
+		<h4 style="color: #4d4d4d; margin-bottom: -5px;">Customers</h4>
 		<hr style="border:2px solid #4d4d4d; width: 120px; float: left;">
 
 	</div>
@@ -136,15 +135,15 @@ if(isset($_GET["logout"]))
 			<!-- side bar start here -->
 			<div class="row" style="padding-left: 0px;padding-right: 0px;">
 				<div style="padding: 10px; border: 1px solid #e7e7e7; border-radius: 5px; background-color: #fff; height: 720px;  ">
-					<h3 style="color: #4d4d4d;">Engineers List</h3>
+					<h3 style="color: #4d4d4d;">Customers List</h3>
 					<hr style="border:1px solid #f1f1f1">
 					<div style="overflow:auto;height: 600px; background-color: #fff;">
 					<table class="table table-striped  table-hover table-condensed" style="text-align: center;">
 	                    <thead >
 	                        <tr style="border: none;">
-	                        	<th><h6>Picture</h6></th>
 	                            <th ><h6>Names</h6></th>
-	                            <th><h6>Complains Completed</h6></th>
+	                            <th><h6>Address</h6></th>
+	                            <th><h6>Pincode</h6></th>
 	                            <th><h6>Mobile Number</h6></th>
 	                            <th><h6>Profiles</h6></th>
 	                        </tr>
@@ -153,171 +152,241 @@ if(isset($_GET["logout"]))
 	                        <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<a class="btn btn-secondary" href="edit_customer.php">Edit</a>
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                           <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                          <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                          <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                          <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                           <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-	                          <tr>
+	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
+	                            
 	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
+	                            <td style="border-top: hidden;">53000</td>
+	                            <td style="border-top: hidden;">0777554544545</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                        <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
-
-	                        <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                        
-
 	                    </tbody>
 	                </table>
 	            	</div>

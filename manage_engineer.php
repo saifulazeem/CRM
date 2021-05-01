@@ -22,7 +22,7 @@ if(isset($_GET["logout"]))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboaard</title>
+	<title>Delete Engineer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,19 +55,19 @@ if(isset($_GET["logout"]))
                             <ul>
                             	<li><a  href="dashboard.php">Dashboard</a></li>
                             	 <hr class="new2">
-                                <li><a style="background-color: #2d2d2d;"  href="engineers_list.php">All Engineers</a></li>
+                                <li><a   href="engineers_list.php">All Engineers</a></li>
                                 <hr class="new2">
                                 <li><a  href="register-complain.php">Register Complains</a></li>
                                 <hr class="new2">
                                 <li><a href="complain-status.php">Complains Status</a></li>
                                 <hr class="new2">
-                                <li><a href="customer-list.php">Manage Customers</a></li>
+                               <li><a href="customer-list.php">Manage Customers</a></li>
                                 <hr class="new2">
                                 <li><a href="register-engineer.php">Register Engineers</a></li>
                                 <hr class="new2">
-                                <li><a href="manage_engineer.php">Manage Engineers</a></li>
+                                <li><a style="background-color: #2d2d2d;" href="manage_engineer.php">Manage Engineers</a></li>
                                 <hr class="new2">
-                               
+                                
                                 <li>
                                 	<form>
                                 		<input class="btn btn-secondary" type="submit" name="logout" value="Logout">
@@ -158,7 +158,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                            <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<a class="btn btn-secondary" href="edit_engineer.php">Edit</a>
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -169,7 +174,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -180,7 +190,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -191,7 +206,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -202,7 +222,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -213,7 +238,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -224,7 +254,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -235,7 +270,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -246,7 +286,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -257,7 +302,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -268,7 +318,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -279,7 +334,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -290,7 +350,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                          <tr>
@@ -301,7 +366,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 
@@ -313,7 +383,12 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;">497</td>
 	                            <td style="border-top: hidden;">N/A</td>
 	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;"><a href="#">View</a></td>
+	                             <td style="border-top: hidden;">
+	                            	<form>
+	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
+	                            		<input class="btn btn-secondary" type="submit" name="edit_engr" value="Edit">
+	                            	</form>
+	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
 	                        
