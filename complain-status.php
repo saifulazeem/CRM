@@ -123,8 +123,21 @@ if(isset($_GET["logout"]))
             </ul>
 		</div>
 		<br>
+		<h4 style="color: #4d4d4d; margin-bottom: -5px;">Filter Complains By Date </h4>
+		<hr style="border:2px solid #4d4d4d; width: 280px; float: left;">
+		<br>
+		<br>
+		<div class="ul-container">
+			 <ul>
+                <li ><a class="btn btn-primary" style="background-color: #4d4d4d; border: none;" href="complain-status.php">LAST 1 MONTHS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="pending.php">LAST 3 MONTHS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d;border: none;" href="inprogress.php">LAST 6 MONTHS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="closed.php">LAST 12 MONTHS</a></li>
+            </ul>
+		</div>
+		<br>
 		<h4 style="color: #4d4d4d; margin-bottom: -5px;">Complains Status</h4>
-		<hr style="border:2px solid #4d4d4d; width: 120px; float: left;">
+		<hr style="border:2px solid #4d4d4d; width: 190px; float: left;">
 
 	</div>
 
@@ -145,6 +158,7 @@ if(isset($_GET["logout"]))
 	                            <th ><h6>Customer Names</h6></th>
 	                            <th><h6>Complains Status</h6></th>
 	                            <th><h6>Mobile Number</h6></th>
+	                            <th><h6>Date</h6></th>
 	                            <th><h6>Technicians</h6></th>
 	                        </tr>
 	                    </thead>
@@ -159,6 +173,7 @@ if(isset($_GET["logout"]))
 						               $cp_id= $rows['cp_id'];
 						               $c_id= $rows['c_id'];
 						               $cp_status= $rows['status'];
+						               $cp_date= $rows['cp_date'];
 						               if($cp_status==0)
 						               {
 						               	$status='Pending';
@@ -189,6 +204,7 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;"><?php echo $cust_name; ?></td>
 	                            <td style="border-top: hidden;"><?php echo $status; ?></td>
 	                            <td style="border-top: hidden;"><?php echo $cust_mobile; ?></td>
+	                            <td style="border-top: hidden;"><?php echo $cp_date; ?></td>
 	                            <!-- <td>1</td> -->
 	                            <td style="border-top: hidden;"><a href='<?php echo "add_technician.php?cpid=$cp_id && cid=$c_id" ?>'>Add</a></td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->

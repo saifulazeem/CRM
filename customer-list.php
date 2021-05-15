@@ -150,7 +150,7 @@ if(isset($_GET["logout"]))
 	                    </thead>
 	                    <tbody>
 	                    	<?php
-							$query=$con->prepare("SELECT * FROM customers ");
+							$query=$con->prepare("SELECT * FROM customers WHERE is_delete=0 ");
 							                    // $query->bind_param("s",$cp_id);
 							                    $query->execute();
 							                    $result=$query->get_result();
@@ -176,8 +176,9 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;"><?php echo $cust_mobile;  ?></td>
 	                            <!-- <td>1</td> -->
 	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
+	                            	<form method="POST">
+	                            		<!-- <input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete"> -->
+	                            		<a class="btn btn-secondary" href="<?php echo "delete_cust.php?id=$cid" ; ?>">Delete</a>
 	                            		<a class="btn btn-secondary" href="<?php echo "edit_customer.php?id=$cid" ; ?>">Edit</a>
 	                            	</form>
 	                            </td>
@@ -185,317 +186,11 @@ if(isset($_GET["logout"]))
 	                        </tr>
 	                        <?php }
 							        $query->close(); ?>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                           <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                          <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                          <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                          <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                            <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                           <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
-	                         <tr>
-	                            <!-- <td>1</td> -->
-	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
-	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
-	                            <!-- <td>1</td> -->
-	                        <td style="border-top: hidden;">
-	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<input class="btn btn-secondary" type="submit" name="edit_cust" value="Edit">
-	                            	</form>
-	                            </td>
-	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
-	                        </tr>
 	                    </tbody>
 	                </table>
 	            	</div>
 	            </div>
-	        </div>
-
-
-
-
-
-
-
-
-
-
-
-		<!-- <div class="row" style="background-color: #fff; padding: 5px;">
-			<div style=" width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px; "><span style="margin-left: 5px;"><b>Engineer Name</b></span></div>
-			<div style="width: 15%;border-right: 1px solid #333;text-align: center; padding-right: 15px; margin-left: 10px; ">
-				<div>
-					<span><b>Ratings</b></span>
-				</div>
-			</div>
-			<div style="width: 15%;border-right: 1px solid #333;text-align: center; padding-right: 15px; margin-left: 10px; ">
-				<span><b>Complain Completed</b></span>
-			</div>
-			<div style="width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px; margin-left: 10px; ">
-				<span><b>Pendding</b></span>
-			</div>
-			<div style="width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px; margin-left: 10px; ">
-				<span><b>On Time Completeion </b></span>
-			</div>
-			<div style="width: 6%;text-align: center; padding-right: 0px;  ">
-				<b>Profiles</b>
-			</div>
-		</div>
-		<br>
-		<div class="row" style="background-color: #fff; padding: 5px;">
-			<div style=" width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px; "><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" > <span style="margin-left: 5px;">War Titans Mech Tank</span></div>
-			<div style="width: 15%;border-right: 1px solid #333;text-align: center; padding-right: 15px; margin-left: 10px; ">
-				<div style="padding-top: 6px;">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star"></span>
-					<span>(3.0)</span>
-				</div>
-			</div>
-			<div style="width: 15%;border-right: 1px solid #333;text-align: center; padding-right: 15px;padding-top: 6px; margin-left: 10px; ">
-				<span>274</span>
-			</div>
-			<div style="width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px;padding-top: 6px; margin-left: 10px; ">
-				<span>15</span>
-			</div>
-			<div style="width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px;padding-top: 6px; margin-left: 10px; ">
-				<span>100%</span>
-			</div>
-			<div style="width: 6%;text-align: center; padding-right: 0px;padding-top: 6px;  ">
-				<a href="#profile">View</a>
-			</div>
-		</div>
-		<br>
-		<div class="row" style="background-color: #fff; padding: 5px;">
-			<div style=" width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px; "><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" > <span style="margin-left: 5px;">War Titans Mech Tank</span></div>
-			<div style="width: 15%;border-right: 1px solid #333;text-align: center; padding-right: 15px; margin-left: 10px; ">
-				<div style="padding-top: 6px;">
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star"></span>
-					<span>(3.0)</span>
-				</div>
-			</div>
-			<div style="width: 15%;border-right: 1px solid #333;text-align: center; padding-right: 15px;padding-top: 6px; margin-left: 10px; ">
-				<span><b>Version: </b>2.7.4.1</span>
-			</div>
-			<div style="width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px;padding-top: 6px; margin-left: 10px; ">
-				<span><b>Last Updated: </b>20-10-2020</span>
-			</div>
-			<div style="width: 20%;border-right: 1px solid #333;text-align: center; padding-right: 15px;padding-top: 6px; margin-left: 10px; ">
-				<span><b>Develop By: </b>Rock Star</span>
-			</div>
-			<div style="width: 6%;text-align: center; padding-right: 0px;padding-top: 6px;  ">
-				<a href="#profile">Profile</a>
-			</div>
-		</div>
-		<br> -->
-		
+	        </div>	
 	</div>
 	<br>
 	<br>
@@ -506,31 +201,6 @@ if(isset($_GET["logout"]))
 	<br>
 	<br>
 	<br>
-<!-- 	<div class="fluid-container" style="background-color: #333; height: 250px;">
-		<div class="container">
-			<div class="row" style="padding-top: 20px;">
-				<div class="col-4"></div>
-				<div class="col-3"><h3 style="float: right; color: #fff">Privacy Policy</h3></div>
-				<div class="col-3"><h3 style="color: #fff;">Contact Us</h3></div>
-				<div class="col-2"></div>
-			</div>
-			<div class="row">
-				<div class="col-2">
-					<a id="logoo" style="color: #fff;" class="navbar-brand" href="index.php"> <span class="btn btn-primary" style="font-size: 17px; background-color: #00346e; border: none;">CRM</span> FOR PC</a>
-				</div>
-				<div class="col-10" style="padding-top: 5px;">
-					<p style="text-align: center; color: #fff;">Chapter too parties its letters nor. Cheerful but whatever ladyship disposed yet judgment. Lasted answer oppose to ye months no esteem. Branched is on an ecstatic directly it</p>
-				</div>
-			</div>
-			<div class="row">
-
-				<div class="col-6"></div>
-				<div class="col-4"><img src="img/fbicon.png" width="20" height="35"><img style="margin-left: 25px;" src="img/twittericon.png" width="40" height="40"><img style="margin-left: 25px;" src="img/youtubeicon.png" width="40" height="40"></div>
-				<div class="col-2"></div>
-			</div>
-		</div>
-	</div>
- -->
 	<div class="fluid-container sticky-bottom" style="background-color: #333; height: 30px;  position: fixed;left: 0;bottom: 0;width: 100%;">
         <div class="row" style="padding-top:4px;">
             <div class="col-2"></div>
@@ -548,3 +218,5 @@ if(isset($_GET["logout"]))
 </body>
 </html>
 </html>
+
+

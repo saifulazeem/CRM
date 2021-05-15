@@ -178,13 +178,30 @@ if (isset($_POST["register_engr"]))
     $maill=mysqli_real_escape_string($con,$_POST["email_address"]);
     $cell=mysqli_real_escape_string($con,$_POST["engr_mobile"]);
 
-     $query31=$con->prepare("INSERT INTO users(engr_name,email,pass,mobile) values(?,?,?,?)");
+    $queery=$con->prepare("SELECT * FROM users WHERE email=?");
+    $queery->bind_param("s",$maill);
+    $queery->execute();
+    $ressult=$queery->get_result();
+
+    if($ressult->num_rows===0)
+    {
+        $query31=$con->prepare("INSERT INTO users(engr_name,email,pass,mobile) values(?,?,?,?)");
         $query31->bind_param("ssss",$e_name,$maill,$password,$cell);
         $query31->execute();
         $query31->close();
         echo '<script language=javascript>';
         echo 'alert("Engineer '.$e_name.' has been registerd sucessfully")';
-        echo '</script>';
+        echo '</script>'; 
+    }
+
+    else
+    {
+        echo '<script language=javascript>';
+        echo 'alert("ERROR Engineer '.$maill.' Already Registerd! Use Any Other Email")';
+        echo '</script>'; 
+    }
+
+
 
     }
 

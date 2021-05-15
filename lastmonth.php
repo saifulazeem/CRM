@@ -116,15 +116,28 @@ if(isset($_GET["logout"]))
 	<div class="container">
 		<div class="ul-container">
 			 <ul>
-                <li ><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="complain-status.php">ALL</a></li>
+                <li ><a class="btn btn-primary" style="background-color: #4d4d4d; border: none;" href="complain-status.php">ALL</a></li>
                 <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="pending.php">PENDING</a></li>
-                <li><a class="btn btn-primary" style="background-color: #4d4d4d; color: #fff;border: none;" href="inprogress.php">IN PROGRESS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d;border: none;" href="inprogress.php">IN PROGRESS</a></li>
                 <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="closed.php">CLOSED</a></li>
             </ul>
 		</div>
 		<br>
+		<h4 style="color: #4d4d4d; margin-bottom: -5px;">Filter Complains By Date </h4>
+		<hr style="border:2px solid #4d4d4d; width: 280px; float: left;">
+		<br>
+		<br>
+		<div class="ul-container">
+			 <ul>
+                <li ><a class="btn btn-primary" style="background-color: #4d4d4d; border: none;" href="complain-status.php">LAST 1 MONTHS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="pending.php">LAST 3 MONTHS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d;border: none;" href="inprogress.php">LAST 6 MONTHS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="closed.php">LAST 12 MONTHS</a></li>
+            </ul>
+		</div>
+		<br>
 		<h4 style="color: #4d4d4d; margin-bottom: -5px;">Complains Status</h4>
-		<hr style="border:2px solid #4d4d4d; width: 120px; float: left;">
+		<hr style="border:2px solid #4d4d4d; width: 190px; float: left;">
 
 	</div>
 
@@ -145,14 +158,13 @@ if(isset($_GET["logout"]))
 	                            <th ><h6>Customer Names</h6></th>
 	                            <th><h6>Complains Status</h6></th>
 	                            <th><h6>Mobile Number</h6></th>
-	                            <th><h6>Engineer Name</h6></th>
 	                            <th><h6>Date</h6></th>
 	                            <th><h6>Technicians</h6></th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
 	                    	<?php
-	                    		$query21=$con->prepare("SELECT * FROM complains WHERE status=1");
+	                    		$query21=$con->prepare("SELECT * FROM complains WHERE cp_date BETWEEN '2011/02/25' and '2011/02/27'");
 						        // $query21->bind_param("s",$cmobile);
 						        $query21->execute();
 						        $resultss=$query21->get_result();
@@ -160,7 +172,6 @@ if(isset($_GET["logout"]))
 						           {
 						               $cp_id= $rows['cp_id'];
 						               $c_id= $rows['c_id'];
-						               $uid=$rows['id'];
 						               $cp_status= $rows['status'];
 						               $cp_date= $rows['date'];
 						               if($cp_status==0)
@@ -184,18 +195,6 @@ if(isset($_GET["logout"]))
 								        }
 								        $query22->close();
 
-								        $query212=$con->prepare("SELECT * FROM users WHERE id=?");
-								        $query212->bind_param("s",$uid);
-								        $query212->execute();
-								        $rresultsss=$query212->get_result();
-								        while ($rroow=$rresultsss->fetch_assoc()) {
-								        	# code...
-								        	$tech_name=$rroow['engr_name'];
-								        	$tech_mobile=$rroow['mobile'];
-
-								        }
-								        $query212->close();
-
 						           
 	                    	?>
 	                        <tr>
@@ -205,7 +204,6 @@ if(isset($_GET["logout"]))
 	                            <td style="border-top: hidden;"><?php echo $cust_name; ?></td>
 	                            <td style="border-top: hidden;"><?php echo $status; ?></td>
 	                            <td style="border-top: hidden;"><?php echo $cust_mobile; ?></td>
-	                            <td style="border-top: hidden;"><?php echo $tech_name; ?></td>
 	                            <td style="border-top: hidden;"><?php echo $cp_date; ?></td>
 	                            <!-- <td>1</td> -->
 	                            <td style="border-top: hidden;"><a href='<?php echo "add_technician.php?cpid=$cp_id && cid=$c_id" ?>'>Add</a></td>

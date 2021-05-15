@@ -184,6 +184,7 @@ $query4->close();
 <?php
 if (isset($_POST["register_cust"]))
 {
+
     $cproduct=mysqli_real_escape_string($con,$_POST["product_type"]);
     $product=mysqli_real_escape_string($con,$_POST["new_product"]);
 
@@ -203,44 +204,59 @@ if (isset($_POST["register_cust"]))
 
         // $cproduct=mysqli_real_escape_string($con,$_POST["product_type"]);
         $cdetails=mysqli_real_escape_string($con,$_POST["c_message"]);
-
         $product=mysqli_real_escape_string($con,$_POST["new_product"]);
+
         $query31=$con->prepare("INSERT INTO products(cproducts) values(?)");
         $query31->bind_param("s",$product);
         $query31->execute();
         $query31->close();
 
-        $query=$con->prepare("INSERT INTO customers(c_name,c_mobile,c_alt_mobile,c_address,c_pincode) values(?,?,?,?,?)");
+        $query29=$con->prepare("SELECT * FROM customers WHERE  c_mobile=?");
 
-        $query->bind_param("sssss",$cname,$cmobile,$c_alt_mobile,$caddress,$cpincode);
-        $query->execute();
-        $query->close();
+        $query29->bind_param("s",$cmobile);
+        $query29->execute();
+        $reesult=$query29->get_result();
+        $query29->close();
+
+        if($reesult->num_rows===0)
+        {
+
+            $query=$con->prepare("INSERT INTO customers(c_name,c_mobile,c_alt_mobile,c_address,c_pincode) values(?,?,?,?,?)");
+
+            $query->bind_param("sssss",$cname,$cmobile,$c_alt_mobile,$caddress,$cpincode);
+            $query->execute();
+            $query->close();
+
+            
+        }
 
         $query2=$con->prepare("SELECT * FROM customers WHERE  c_mobile=?");
 
-        $query2->bind_param("s",$cmobile);
-        $query2->execute();
-        $result=$query2->get_result();
-        while($rows=$result->fetch_assoc())
-           {
-               $id= $rows['c_id'];
+            $query2->bind_param("s",$cmobile);
+            $query2->execute();
+            $result=$query2->get_result();
+            while($rows=$result->fetch_assoc())
+               {
+                   $id= $rows['c_id'];
+                }
+            
+            $query2->close();
+
+            if(!empty($product))
+            {
+                $cproduct=$product;
             }
+            $query1=$con->prepare("INSERT INTO complains(c_id,product,description) values(?,?,?)");
+
+            $query1->bind_param("sss",$id,$cproduct,$cdetails);
+            $query1->execute();    
+            $query1->close();
+
         
-        $query2->close();
-
-        if(!empty($product))
-        {
-            $cproduct=$product;
-        }
-        $query1=$con->prepare("INSERT INTO complains(c_id,product,description) values(?,?,?)");
-
-        $query1->bind_param("sss",$id,$cproduct,$cdetails);
-        $query1->execute();    
-
         echo '<script language=javascript>';
         echo 'alert("Complain has been registerd sucessfully")';
         echo '</script>';
-        $query1->close();
+        
   
     }
     

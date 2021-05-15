@@ -150,22 +150,46 @@ if(isset($_GET["logout"]))
 	                        </tr>
 	                    </thead>
 	                    <tbody>
+	                    	<?php
+							$qquery=$con->prepare("SELECT * FROM users WHERE is_delete=0 ");
+							                    // $query->bind_param("s",$cp_id);
+							                    $qquery->execute();
+							                    $rresult=$qquery->get_result();
+							                    while($row=$rresult->fetch_assoc())
+							                   {
+							                       // $title= $row['title'];
+							                       $uid=$row["id"];
+							                       $tech_name=$row["engr_name"];
+							                       $tech_mobile=$row["mobile"];
+							                       $total_complains=$row["complains_completed"];
+							                       if($total_complains==0)
+							                       {
+							                       	$total_complains="N/A";
+							                       }
+							                       // $postal_code=$row["c_pincode"];
+							                       // echo $formate;
+							                       
+							                    
+	                    	?>
 	                        <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
 	                            <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">497</td>
-	                            <td style="border-top: hidden;">N/A</td>
+	                            <td style="border-top: hidden;"><?php echo $tech_name; ?></td>
+	                            <td style="border-top: hidden;"><?php echo $total_complains; ?></td>
+	                            <td style="border-top: hidden;"><?php echo $tech_mobile; ?></td>
 	                            <!-- <td>1</td> -->
 	                            <td style="border-top: hidden;">
 	                            	<form>
-	                            		<input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete">
-	                            		<a class="btn btn-secondary" href="edit_engineer.php">Edit</a>
+	                            		<!-- <input class="btn btn-secondary" type="submit" name="delete_engr" value="Delete"> -->
+	                            		<a class="btn btn-secondary" href="<?php echo "delete_cust.php?uid=$uid" ; ?>">Delete</a>
+	                            		<a class="btn btn-secondary" href="<?php echo "edit_engineer.php?uid=$uid" ; ?>">Edit</a>
 	                            	</form>
 	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
+	                    <?php }
+	                    	$qquery->close(); ?>
 	                          <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->

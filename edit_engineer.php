@@ -102,26 +102,52 @@ if(isset($_GET["logout"]))
                 <br>
                 <br>
                 <br>
-                <form method="post">
+
+                <?php
+                 if (isset($_GET["uid"]))
+                {
+                    
+                    $uid=$_GET["uid"];
+
+                    $query=$con->prepare("SELECT * FROM users WHERE id=?");
+                    $query->bind_param("s",$uid);
+                    $query->execute();
+                    $result=$query->get_result();
+                    while($row=$result->fetch_assoc())
+                   {
+                       // $title= $row['title'];
+                       $uid=$row["id"];
+                        $tech_name=$row["engr_name"];
+                        $tech_mobile=$row["mobile"];
+                        $emails=$row["email"];
+                        $pass=$row["pass"];
+                       // echo $formate;
+                       
+                    }
+                    $query->close();
+
+                }
+                    ?>
+                <form method="POST">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12" >
-                                <input class="form-control" type="text" name="engr_name" placeholder="Engineer Name*" value="Saif" required>
+                                <input class="form-control" type="text" name="engr_name" placeholder="Engineer Name*" value="<?php echo $tech_name;?>" required>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12" >
-                                <input class="form-control" type="tel" name="engr_mobile" placeholder="Mobile*" value="01285545465425" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required >
+                                <input class="form-control" type="tel" name="engr_mobile" placeholder="Mobile*" value="<?php echo $tech_mobile;?>"  required >
                             </div>
                         </div>
                         <br>
-                        <div class="row">
+                       <!--  <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12" >
                                 <input class="form-control" type="text" name="engr_alt_mobile" placeholder="Alt Mobile" value="02315456456" >
                             </div>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12" >
-                                <input class="form-control" type="email" name="email_address" placeholder="Email@mail.com*" value="saifjj@abc.com" required>
+                                <input class="form-control" type="email" name="email_address" placeholder="Email@mail.com*" value="<?php echo $emails;?>" required>
                             </div>
                            <!--  <div class="col-lg-2 col-md-2 col-sm-12" >
                                 <input class="form-control" type="password" name="pass" placeholder="Password" required>
@@ -130,7 +156,7 @@ if(isset($_GET["logout"]))
                         <br>
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                <input class="form-control" type="password" name="pass" placeholder="Password*" value="123245645adad" required>
+                                <input class="form-control" type="text" name="pass" placeholder="Password*" value="<?php echo $pass;?>" required>
                             </div>
                         </div>
                        
@@ -170,3 +196,23 @@ if(isset($_GET["logout"]))
 </body>
 </html>
 </html>
+
+ <?php
+                 if (isset($_POST["update_engr"]))
+                {
+                    
+                    $e_name=mysqli_real_escape_string($con,$_POST["engr_name"]);
+                    $password=mysqli_real_escape_string($con,$_POST["pass"]);
+                    $maill=mysqli_real_escape_string($con,$_POST["email_address"]);
+                    $cell=mysqli_real_escape_string($con,$_POST["engr_mobile"]);
+
+                    $query31=$con->prepare("UPDATE users SET engr_name=? ,mobile=?,email=?,pass=? WHERE id=?");
+                    $query31->bind_param("sssss",$e_name,$cell,$maill,$password,$uid);
+                    $query31->execute();
+                    $query31->close();
+                    echo '<script language=javascript>';
+                    echo 'alert("Engineer Record has been Updated sucessfully")';
+                    echo '</script>';
+                    echo '<script> location.replace("manage_engineer.php"); </script>';
+                }
+?>
