@@ -114,18 +114,58 @@ if(isset($_GET["logout"]))
 
     <div class="container">
         <div class="ul-container">
-          <!--   <ul>
-                <li ><a class="btn btn-primary" style="background-color: #4d4d4d; border: none;" href="index.php">ALL</a></li>
-                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="top_apps.php">ON DUTY</a></li>
-                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d;border: none;" href="new_release.php">TOP</a></li>
-                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="rating.php">AVAILABLE</a></li>
+           <!--  <ul>
+                <li ><a class="btn btn-primary" style="background-color: #4d4d4d; border: none;" href="complain-status.php">ALL</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="pendding.php">PENDING</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d;border: none;" href="inprogress.php">IN PROGRESS</a></li>
+                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="closed.php">CLOSED</a></li>
             </ul> -->
-            <h1>Name: Sourbh</h1>
-            <h4> Complain No: CP10114</h4>
-            <h4> Mobile: 0096555552</h4>
-            <h4>Address: House#444 Street#abc Dubai</h4>
+            <?php
+                if (isset($_GET["cpid"]) && isset($_GET["cid"]))
+                {
+                    $cp_id=$_GET["cpid"];
+                    $c_id=$_GET["cid"];
+
+                    $query=$con->prepare("SELECT * FROM complains WHERE cp_id=?");
+                    $query->bind_param("s",$cp_id);
+                    $query->execute();
+                    $result=$query->get_result();
+                    while($row=$result->fetch_assoc())
+                   {
+                       // $title= $row['title'];
+                       $cpid=$row["cp_id"];
+                       $product=$row["product"];
+                       $description=$row["description"];
+                       // echo $formate;
+                       
+                    }
+                    $query->close();
+
+
+                    $query1=$con->prepare("SELECT * FROM customers WHERE c_id=?");
+                    $query1->bind_param("s",$c_id);
+                    $query1->execute();
+                    $resullt=$query1->get_result();
+                    while($roww=$resullt->fetch_assoc())
+                   {
+                       // $title= $row['title'];
+                       $cid=$roww["c_id"];
+                       $cust_mobile=$roww["c_mobile"];
+                       $cust_name=$roww["c_name"];
+                       $address=$roww["c_address"];
+                       // $address=$roww["description"];
+                       // echo $formate;
+                       
+                    }
+                    $query1->close();
+                }
+            ?>
+            <h1>Name: <?php echo $cust_name; ?></h1>
+            <h4> Complain No: <?php echo $cpid ; ?></h4>
+            <h4> Mobile: <?php echo $cust_name; ?></h4>
+            <h4>Address: <?php echo $address; ?></h4>
             <h4>Description</h4>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
+            <p><?php echo $description; ?></p>
         </div>
         <br>
         <h4 style="color: #4d4d4d; margin-bottom: -5px;">Engineers</h4>
@@ -154,21 +194,58 @@ if(isset($_GET["logout"]))
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                             $queryy1=$con->prepare("SELECT * FROM users");
+                                                // $queryy1->bind_param("s",$c_id);
+                                                $queryy1->execute();
+                                                $resullty=$queryy1->get_result();
+                                                while($rowss=$resullty->fetch_assoc())
+                                               {
+                                                   // $title= $row['title'];
+                                                   $uid=$rowss["id"];
+                                                   $tech_name=$rowss["engr_name"];
+                                                   $cp_comp=$rowss["complains_completed"];
+                                                   $mobile=$rowss["mobile"];
+                                                   // $address=$roww["description"];
+                                                   // echo $formate;
+                                                   
+                                                
+                                            
+
+                            ?>
                             <tr>
                                 <!-- <td>1</td> -->
                                 <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
                                 <td style="border-top: hidden;"><img style="border-radius: 5px;" src="<?php echo 'https://play-lh.googleusercontent.com/XyANhfY-unXCEKlUSaS3_e8HEdwDBJwg9t8bpeHF-xGqFlB1zAcVT3IVMGD_YoMfph0=w40' ?>"   alt="<?php echo 'War Titans Mech Tank Combat'; ?>" ></td>
-                                <td style="border-top: hidden;">Saif Azeem</td>
-                                <td style="border-top: hidden;">497</td>
-                                <td style="border-top: hidden;">N/A</td>
+                                <td style="border-top: hidden;"><?php echo $tech_name; ?></td>
+                                <td style="border-top: hidden;"><?php echo $cp_comp; ?></td>
+                                <td style="border-top: hidden;"><?php echo $mobile; ?></td>
                                 <!-- <td>1</td> -->
                                 <td style="border-top: hidden;">
-                                    <form>
+                                    <form method="POST">
                                         <input class="btn btn-secondary" type="submit" name="add_tech" value="Select">    
                                     </form>
                                 </td>
                                 <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
                             </tr>
+
+                            <?php }
+                                $queryy1->close(); 
+
+                                if (isset($_POST["add_tech"]))
+                                {
+                                   $status=1;
+                                    $query31=$con->prepare("UPDATE complains SET id=? ,status=? WHERE cp_id=?");
+                                    $query31->bind_param("sss",$uid,$status,$cpid);
+                                    $query31->execute();
+                                    $query31->close();
+
+                                    echo '<script language=javascript>';
+                                    echo 'alert("Engineer Add sucessfully")';
+                                    echo '</script>';
+                                    echo '<script> location.replace("complain-status.php"); </script>';
+                                }
+                                ?>
                               <tr>
                                 <!-- <td>1</td> -->
                                 <!-- <td><span></span>ANTENNE BAYERN</span></td> -->

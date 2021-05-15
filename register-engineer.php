@@ -108,7 +108,7 @@ if(isset($_GET["logout"]))
                                 <input class="form-control" type="text" name="engr_name" placeholder="Engineer Name*" required>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12" >
-                                <input class="form-control" type="tel" name="engr_mobile" placeholder="Mobile*" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required >
+                                <input class="form-control" type="tel" name="engr_mobile" placeholder="Mobile*"  required >
                             </div>
                         </div>
                         <br>
@@ -159,7 +159,7 @@ if(isset($_GET["logout"]))
                         <br>
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                <input class="btn btn-secondary" type="submit" name="register_cust" value="Register">
+                                <input class="btn btn-secondary" type="submit" name="register_engr" value="Register">
                             </div>
                         </div>   
                     </div>    
@@ -169,3 +169,23 @@ if(isset($_GET["logout"]))
 </body>
 </html>
 </html>
+
+<?php
+if (isset($_POST["register_engr"]))
+{
+    $e_name=mysqli_real_escape_string($con,$_POST["engr_name"]);
+    $password=mysqli_real_escape_string($con,$_POST["pass"]);
+    $maill=mysqli_real_escape_string($con,$_POST["email_address"]);
+    $cell=mysqli_real_escape_string($con,$_POST["engr_mobile"]);
+
+     $query31=$con->prepare("INSERT INTO users(engr_name,email,pass,mobile) values(?,?,?,?)");
+        $query31->bind_param("ssss",$e_name,$maill,$password,$cell);
+        $query31->execute();
+        $query31->close();
+        echo '<script language=javascript>';
+        echo 'alert("Engineer '.$e_name.' has been registerd sucessfully")';
+        echo '</script>';
+
+    }
+
+?>

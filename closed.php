@@ -116,10 +116,10 @@ if(isset($_GET["logout"]))
 	<div class="container">
 		<div class="ul-container">
 			 <ul>
-                <li ><a class="btn btn-primary" style="background-color: #4d4d4d; border: none;" href="complain-status.php">ALL</a></li>
+                <li ><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="complain-status.php">ALL</a></li>
                 <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="pending.php">PENDING</a></li>
                 <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d;border: none;" href="inprogress.php">IN PROGRESS</a></li>
-                <li><a class="btn btn-primary" style="background-color: #fff; color: #4d4d4d; border: none;" href="closed.php">CLOSED</a></li>
+                <li><a class="btn btn-primary" style="background-color: #4d4d4d; color: #fff; border: none;" href="closed.php">CLOSED</a></li>
             </ul>
 		</div>
 		<br>
@@ -150,7 +150,7 @@ if(isset($_GET["logout"]))
 	                    </thead>
 	                    <tbody>
 	                    	<?php
-	                    		$query21=$con->prepare("SELECT * FROM complains");
+	                    		$query21=$con->prepare("SELECT * FROM complains WHERE status=3");
 						        // $query21->bind_param("s",$cmobile);
 						        $query21->execute();
 						        $resultss=$query21->get_result();

@@ -152,7 +152,7 @@ $query4->close();
                                         {
                                             $pid= $row['p_id'];
                                             $cust_product= $row['cproducts'];
-                                            echo ' <option value="$cust_product">'.$cust_product.'</option>'; 
+                                            echo ' <option>'.$cust_product.'</option>'; 
 
                                         }
                                             echo '</select>';

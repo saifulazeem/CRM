@@ -149,23 +149,42 @@ if(isset($_GET["logout"]))
 	                        </tr>
 	                    </thead>
 	                    <tbody>
+	                    	<?php
+							$query=$con->prepare("SELECT * FROM customers ");
+							                    // $query->bind_param("s",$cp_id);
+							                    $query->execute();
+							                    $result=$query->get_result();
+							                    while($row=$result->fetch_assoc())
+							                   {
+							                       // $title= $row['title'];
+							                       $cid=$row["c_id"];
+							                       $cust_name=$row["c_name"];
+							                       $cust_mobile=$row["c_mobile"];
+							                       $address=$row["c_address"];
+							                       $postal_code=$row["c_pincode"];
+							                       // echo $formate;
+							                       
+							                    
+	                    	?>
 	                        <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->
 	                            
-	                            <td style="border-top: hidden;">Saif Azeem</td>
-	                            <td style="border-top: hidden;">House 123 Sector#125 Punjab</td>
-	                            <td style="border-top: hidden;">53000</td>
-	                            <td style="border-top: hidden;">0777554544545</td>
+	                            <td style="border-top: hidden;"><?php echo $cust_name;  ?></td>
+	                            <td style="border-top: hidden;"><?php echo $address;  ?></td>
+	                            <td style="border-top: hidden;"><?php echo $postal_code;  ?></td>
+	                            <td style="border-top: hidden;"><?php echo $cust_mobile;  ?></td>
 	                            <!-- <td>1</td> -->
 	                            <td style="border-top: hidden;">
 	                            	<form>
 	                            		<input class="btn btn-secondary" type="submit" name="delete_cust" value="Delete">
-	                            		<a class="btn btn-secondary" href="edit_customer.php">Edit</a>
+	                            		<a class="btn btn-secondary" href="<?php echo "edit_customer.php?id=$cid" ; ?>">Edit</a>
 	                            	</form>
 	                            </td>
 	                            <!-- <td><a href="https://www.appsvista.com/versions/antenne-bayern/download-4-9-1-912"><i class="fas fa-download"></i></a></td> -->
 	                        </tr>
+	                        <?php }
+							        $query->close(); ?>
 	                         <tr>
 	                            <!-- <td>1</td> -->
 	                            <!-- <td><span></span>ANTENNE BAYERN</span></td> -->

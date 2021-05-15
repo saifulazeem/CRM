@@ -1,4 +1,5 @@
 <?php
+include("connection.php");
 session_start();
 
 if (isset($_SESSION["loged_user"]))
@@ -100,29 +101,55 @@ if(isset($_GET["logout"]))
                 <br>
                 <br>
                 <br>
-                <form method="post">
+                <?php
+                 if (isset($_GET["id"]))
+                {
+                    
+                    $c_id=$_GET["id"];
+
+                    $query=$con->prepare("SELECT * FROM customers WHERE c_id=?");
+                    $query->bind_param("s",$c_id);
+                    $query->execute();
+                    $result=$query->get_result();
+                    while($row=$result->fetch_assoc())
+                   {
+                       // $title= $row['title'];
+                       $cid=$row["c_id"];
+                        $cust_name=$row["c_name"];
+                        $cust_mobile=$row["c_mobile"];
+                        $cust_alt_mobile=$row["c_alt_mobile"];
+                        $address=$row["c_address"];
+                        $postal_code=$row["c_pincode"];
+                       // echo $formate;
+                       
+                    }
+                    $query->close();
+
+                }
+                    ?>
+                <form method="POST">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12" >
-                                <input class="form-control" type="text" name="cust_name" value="Saif abbasi" placeholder="Customer Name*" required>
+                                <input class="form-control" type="text" name="cust_name" value="<?php echo $cust_name;?>" placeholder="Customer Name*" required>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12" >
-                                <input class="form-control" type="tel" name="cust_mobile" value="0015456456" placeholder="Mobile*" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required >
+                                <input class="form-control" type="tel" name="cust_mobile" value="<?php echo $cust_mobile; ?>" placeholder="Mobile*"  required >
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12" >
-                                <input class="form-control" type="text" name="cust_alt_mobile" value="245345564564" placeholder="Alt Mobile" >
+                                <input class="form-control" type="text" name="cust_alt_mobile" value="<?php echo $cust_alt_mobile ;?>" placeholder="Alt Mobile" >
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12" >
-                                <input class="form-control" type="text" name="cust_address" value="House#123 Street#124 Punjab" placeholder="Address*" required>
+                                <input class="form-control" type="text" name="cust_address" value="<?php echo $address; ?>" placeholder="Address*" required>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12" >
-                                <input class="form-control" type="text" name="cust_postalcode" value="2152456" placeholder="Pincode*" required>
+                                <input class="form-control" type="text" name="cust_postalcode" value="<?php echo $postal_code; ?>" placeholder="Pincode*" required>
                             </div>
                         </div>
                         <br>
@@ -167,3 +194,24 @@ if(isset($_GET["logout"]))
 </body>
 </html>
 </html>
+
+ <?php
+                 if (isset($_POST["update_cust"]))
+                {
+                    
+                    $cname=mysqli_real_escape_string($con,$_POST["cust_name"]);
+                    $cmobile=mysqli_real_escape_string($con,$_POST["cust_mobile"]);
+                    $c_alt_mobile=mysqli_real_escape_string($con,$_POST["cust_alt_mobile"]);
+                    $caddress=mysqli_real_escape_string($con,$_POST["cust_address"]);
+                    $cpincode=mysqli_real_escape_string($con,$_POST["cust_postalcode"]);
+
+                    $query31=$con->prepare("UPDATE customers SET c_name=? ,c_mobile=?,c_alt_mobile=?,c_address=?,c_pincode=? WHERE c_id=?");
+                    $query31->bind_param("ssssss",$cname,$cmobile,$c_alt_mobile,$caddress,$cpincode,$cid);
+                    $query31->execute();
+                    $query31->close();
+                    echo '<script language=javascript>';
+                    echo 'alert("Customer Record has been Updated sucessfully")';
+                    echo '</script>';
+                    echo '<script> location.replace("customer-list.php"); </script>';
+                }
+?>
